@@ -79,7 +79,7 @@ namespace ContactManager.Presenters
 
             StatusText = string.Format(
                 "Contact '{0}' was saved.",
-                contact.LookupName
+                contact.Name
                 );
         }
 
@@ -92,7 +92,7 @@ namespace ContactManager.Presenters
 
             StatusText = string.Format(
                 "Contact '{0}' was deleted.",
-                contact.LookupName
+                contact.Name
                 );
         }
 

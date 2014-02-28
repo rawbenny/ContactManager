@@ -12,7 +12,7 @@ namespace ContactManager.Presenters
             ApplicationPresenter applicationPresenter, 
             EditContactView view,
             Contact contact)
-            : base(view, "Contact.LookupName")
+            : base(view, "Contact.Name")
         {
             _applicationPresenter = applicationPresenter;
             _contact = contact;

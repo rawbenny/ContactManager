@@ -14,9 +14,6 @@
             
             <Presenters:PhoneConverter x:Key="phoneConverter" />
             
-            <ObjectDataProvider  x:Key="stateNames"
-                                 MethodName="GetNames"
-                                 ObjectType="{x:Type Model:States}" />
 
         </ResourceDictionary>
         

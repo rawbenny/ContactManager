@@ -38,12 +38,12 @@ namespace ContactManager.Model
             Serialize();
         }
 
-        public List<Contact> FindByLookup(string lookupName)
+        public List<Contact> FindByLookup(string keyword)
         {
             IEnumerable<Contact> found =
                 from c in _contactStore
-                where c.LookupName.StartsWith(
-                    lookupName,
+                where c.Name.StartsWith(
+                    keyword,
                     StringComparison.OrdinalIgnoreCase
                     )
                 select c;

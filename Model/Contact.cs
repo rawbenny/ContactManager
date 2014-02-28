@@ -5,18 +5,16 @@ namespace ContactManager.Model
     [Serializable]
     public class Contact : Notifier
     {
-        private Address _address = new Address();
+        private string _name;
+        private int _age;
+        private string _address;
         private string _cellPhone;
-        private string _firstName;
-        private string _homePhone;
+        private string _homePhone;        
         private Guid _id = Guid.Empty;
         private string _imagePath;
-        private string _jobTitle;
-        private string _lastName;
-        private string _officePhone;
-        private string _organization;
-        private string _primaryEmail;
-        private string _secondaryEmail;
+        private string _studentId;        
+        private string _grade;
+        private string _email;
 
         public Guid Id
         {
@@ -38,57 +36,49 @@ namespace ContactManager.Model
             }
         }
 
-        public string FirstName
+        public string Name
         {
-            get { return _firstName; }
+            get { return _name; }
             set
             {
-                _firstName = value;
-                OnPropertyChanged("FirstName");
-                OnPropertyChanged("LookupName");
+                _name = value;
+                OnPropertyChanged("Name");
+
             }
         }
 
-        public string LastName
+        public int Age
         {
-            get { return _lastName; }
+
+            get { return _age; }
             set
             {
-                _lastName = value;
-                OnPropertyChanged("LastName");
-                OnPropertyChanged("LookupName");
+                _age = value;
+                OnPropertyChanged("Age");
             }
         }
 
-        public string Organization
+        public string Grade
         {
-            get { return _organization; }
+            get { return _grade; }
             set
             {
-                _organization = value;
-                OnPropertyChanged("Organization");
+                _grade = value;
+                OnPropertyChanged("Grade");
             }
         }
 
-        public string JobTitle
+        public string StudentId
         {
-            get { return _jobTitle; }
+            get { return _studentId; }
             set
             {
-                _jobTitle = value;
-                OnPropertyChanged("JobTitle");
+                _studentId = value;
+                OnPropertyChanged("StudentId");
             }
         }
 
-        public string OfficePhone
-        {
-            get { return _officePhone; }
-            set
-            {
-                _officePhone = value;
-                OnPropertyChanged("OfficePhone");
-            }
-        }
+        
 
         public string CellPhone
         {
@@ -110,27 +100,18 @@ namespace ContactManager.Model
             }
         }
 
-        public string PrimaryEmail
+        public string Email
         {
-            get { return _primaryEmail; }
+            get { return _email; }
             set
             {
-                _primaryEmail = value;
-                OnPropertyChanged("PrimaryEmail");
+                _email = value;
+                OnPropertyChanged("Email");
             }
         }
 
-        public string SecondaryEmail
-        {
-            get { return _secondaryEmail; }
-            set
-            {
-                _secondaryEmail = value;
-                OnPropertyChanged("SecondaryEmail");
-            }
-        }
 
-        public Address Address
+        public string Address
         {
             get { return _address; }
             set
@@ -140,20 +121,22 @@ namespace ContactManager.Model
             }
         }
 
-        public string LookupName
-        {
-            get { return string.Format("{0}, {1}", _lastName, _firstName); }
-        }
-
         public override string ToString()
         {
-            return LookupName;
+            return Name;
         }
 
         public override bool Equals(object obj)
         {
             Contact other = obj as Contact;
             return other != null && other.Id == Id;
+        }
+        public override int GetHashCode()
+        {
+            int hash = 17;
+            // hash += CellPhone.GetHashCode();
+            //hash += HomePhone.GetHashCode();
+            return hash;
         }
     }
 }

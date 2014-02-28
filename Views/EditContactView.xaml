@@ -6,23 +6,23 @@
                 Style="{StaticResource header}">
             <DockPanel LastChildFill="False">
                 <TextBlock DockPanel.Dock="Left"
-                           Text="{Binding Contact.LastName}" />
+                           Text="{Binding Contact.Name}" />
                 <TextBlock DockPanel.Dock="Left"
                            Text=", " />
                 <TextBlock DockPanel.Dock="Left"
-                           Text="{Binding Contact.FirstName}" />
+                           Text="{Binding Contact.StudentId}" />
                 <TextBlock DockPanel.Dock="Right"
-                           Text="{Binding Contact.Organization}" />
+                           Text="{Binding Contact.Grade}" />
             </DockPanel>
         </Border>
 
         <StackPanel DockPanel.Dock="Bottom"
                     Style="{StaticResource buttonPanel}">
-            <Button Content="Save"
+            <Button Content="保存"
                     Click="Save_Click" />
-            <Button Content="Delete"
+            <Button Content="删除"
                     Click="Delete_Click" />
-            <Button Content="Close"
+            <Button Content="关闭"
                     Click="Close_Click" />
         </StackPanel>
 
@@ -31,7 +31,7 @@
                 <GroupBox.Header>
                     <Border Background="{StaticResource lightBlueBrush}"
                             Style="{StaticResource groupBoxHeader}">
-                        <TextBlock Text="General" />
+                        <TextBlock Text="基本信息" />
                     </Border>
                 </GroupBox.Header>
 
@@ -72,38 +72,38 @@
                     </Grid>
 
                     <Label Grid.Column="1"
-                           Content="_First Name:"
-                           Target="{Binding ElementName=firstName}" />
-                    <TextBox x:Name="firstName"
+                           Content="姓名:"
+                           Target="{Binding ElementName=name}" />
+                    <TextBox x:Name="name"
                              Grid.Column="2"
-                             Text="{Binding Contact.FirstName}" />
+                             Text="{Binding Contact.Name}" />
 
                     <Label Grid.Row="1"
                            Grid.Column="1"
-                           Content="_Last Name:"
-                           Target="{Binding ElementName=lastName}" />
-                    <TextBox x:Name="lastName"
+                           Content="年龄:"
+                           Target="{Binding ElementName=age}" />
+                    <TextBox x:Name="age"
                              Grid.Row="1"
                              Grid.Column="2"
-                             Text="{Binding Contact.LastName}" />
+                             Text="{Binding Contact.Age}" />
 
                     <Label Grid.Row="2"
                            Grid.Column="1"
-                           Content="Or_ganization:"
-                           Target="{Binding ElementName=organization}" />
-                    <TextBox x:Name="organization"
+                           Content="班级:"
+                           Target="{Binding ElementName=grade}" />
+                    <TextBox x:Name="grade"
                              Grid.Row="2"
                              Grid.Column="2"
-                             Text="{Binding Contact.Organization}" />
+                             Text="{Binding Contact.Grade}" />
 
                     <Label Grid.Row="3"
                            Grid.Column="1"
-                           Content="_Job Title:"
-                           Target="{Binding ElementName=jobTitle}" />
-                    <TextBox x:Name="jobTitle"
+                           Content="学号:"
+                           Target="{Binding ElementName=studentId}" />
+                    <TextBox x:Name="studentId"
                              Grid.Row="3"
                              Grid.Column="2"
-                             Text="{Binding Contact.JobTitle}" />
+                             Text="{Binding Contact.StudentId}" />
                 </Grid>
             </GroupBox>
 
@@ -111,7 +111,7 @@
                 <GroupBox.Header>
                     <Border Background="{StaticResource greenBrush}"
                             Style="{StaticResource groupBoxHeader}">
-                        <TextBlock Text="Address" />
+                        <TextBlock Text="联系信息" />
                     </Border>
                 </GroupBox.Header>
 
@@ -129,136 +129,43 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Content="Line _1:"
-                           Target="{Binding ElementName=line1}" />
-                    <TextBox x:Name="line1"
+                    <Label Content="地址:"
+                           Target="{Binding ElementName=address}" />
+                    <TextBox x:Name="address"
                              Grid.Column="1"
                              Grid.ColumnSpan="3"
-                             Text="{Binding Contact.Address.Line1}" />
+                             Text="{Binding Contact.Address}" />
 
                     <Label Grid.Row="1"
-                           Content="Line _2:"
-                           Target="{Binding ElementName=line2}" />
-                    <TextBox x:Name="line2"
+                           Content="手机:"
+                           Target="{Binding ElementName=cellPhone}" Height="26" VerticalAlignment="Top" />
+                    <TextBox x:Name="cellPhone"
                              Grid.Row="1"
                              Grid.Column="1"
                              Grid.ColumnSpan="3"
-                             Text="{Binding Contact.Address.Line2}" />
+                             Text="{Binding Contact.CellPhone}" />
 
                     <Label Grid.Row="2"
-                           Content="Ci_ty:"
-                           Target="{Binding ElementName=city}" />
-                    <TextBox x:Name="city"
+                           Content="固定电话:"
+                           Target="{Binding ElementName=homePhone}" />
+                    <TextBox x:Name="homePhone"
                              Grid.Row="2"
                              Grid.Column="1"
-                             Text="{Binding Contact.Address.City}" />
-
-                    <Label Grid.Row="2"
-                           Grid.Column="2"
-                           Content="_State:"
-                           Target="{Binding ElementName=state}" />
-                    <ComboBox x:Name="state"
-                              Grid.Row="2"
-                              Grid.Column="3"
-                              ItemsSource="{Binding Source={StaticResource stateNames}}"
-                              SelectedItem="{Binding Contact.Address.State}" />
-
+                             Grid.ColumnSpan="3"
+                             Text="{Binding Contact.HomePhone}" />
+                    
                     <Label Grid.Row="3"
-                           Content="_Zip:"
-                           Target="{Binding ElementName=zip}" />
-                    <TextBox x:Name="zip"
+                           Grid.Column="0"
+                           Content="Email:"
+                           Target="{Binding ElementName=email}" />
+                    <TextBox x:Name="email"
                              Grid.Row="3"
                              Grid.Column="1"
-                             Text="{Binding Contact.Address.Zip}" />
-
-                    <Label Grid.Row="3"
-                           Grid.Column="2"
-                           Content="Countr_y:"
-                           Target="{Binding ElementName=country}" />
-                    <TextBox x:Name="country"
-                             Grid.Row="3"
-                             Grid.Column="3"
-                             Text="{Binding Contact.Address.Country}" />
+                             Grid.ColumnSpan="3"
+                             Text="{Binding Contact.Email}" />
                 </Grid>
             </GroupBox>
 
-            <GroupBox BorderBrush="{StaticResource redBrush}">
-                <GroupBox.Header>
-                    <Border Background="{StaticResource redBrush}"
-                            Style="{StaticResource groupBoxHeader}">
-                        <TextBlock Text="Phone" />
-                    </Border>
-                </GroupBox.Header>
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="150" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Label Content="_Office:"
-                           Target="{Binding ElementName=office}" />
-                    <TextBox x:Name="office"
-                             Grid.Column="1"
-                             Text="{Binding Path=Contact.OfficePhone,Converter={StaticResource phoneConverter}}" />
-
-                    <Label Grid.Row="1"
-                           Content="_Cell:"
-                           Target="{Binding ElementName=cell}" />
-                    <TextBox  x:Name="cell"
-                              Grid.Row="1"
-                              Grid.Column="1"
-                              Text="{Binding Path=Contact.CellPhone,Converter={StaticResource phoneConverter}}" />
-
-                    <Label Grid.Row="2"
-                           Content="_Home:"
-                           Target="{Binding ElementName=home}" />
-                    <TextBox  x:Name="home"
-                              Grid.Row="2"
-                              Grid.Column="1"
-                              Text="{Binding Path=Contact.HomePhone,Converter={StaticResource phoneConverter}}" />
-
-                </Grid>
-            </GroupBox>
-
-            <GroupBox BorderBrush="{StaticResource brownBrush}">
-                <GroupBox.Header>
-                    <Border Background="{StaticResource brownBrush}"
-                            Style="{StaticResource groupBoxHeader}">
-                        <TextBlock Text="Email" />
-                    </Border>
-                </GroupBox.Header>
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="200" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Label Content="_Primary:"
-                           Target="{Binding ElementName=primaryEmail}" />
-                    <TextBox x:Name="primaryEmail"
-                             Grid.Column="1"
-                             Text="{Binding Contact.PrimaryEmail}" />
-
-                    <Label Grid.Row="1"
-                           Content="S_econdary:"
-                           Target="{Binding ElementName=secondaryEmail}" />
-                    <TextBox  x:Name="secondaryEmail"
-                              Grid.Row="1"
-                              Grid.Column="1"
-                              Text="{Binding Contact.SecondaryEmail}" />
-                </Grid>
-            </GroupBox>
-        </WrapPanel>
+           </WrapPanel>
     </DockPanel>
 </UserControl>

@@ -6,7 +6,7 @@
         <CollectionViewSource x:Key="contactSource"
                               Source="{Binding AllContacts}">
             <CollectionViewSource.SortDescriptions>
-                <ComponentModel:SortDescription PropertyName="LookupName" />
+                <ComponentModel:SortDescription PropertyName="Name" />
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
@@ -23,7 +23,7 @@
 
         <StackPanel DockPanel.Dock="Bottom"
                     Style="{StaticResource buttonPanel}">
-            <Button Content="Close"
+            <Button Content="关闭"
                     Click="Close_Click" />
         </StackPanel>
         
@@ -39,16 +39,16 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Last Name"
-                                    DisplayMemberBinding="{Binding LastName}" />
-                    <GridViewColumn Header="First Name"
-                                    DisplayMemberBinding="{Binding FirstName}" />
-                    <GridViewColumn Header="Work Phone"
-                                    DisplayMemberBinding="{Binding Path=OfficePhone, Converter={StaticResource phoneConverter}}" />
-                    <GridViewColumn Header="Cell Phone"
-                                    DisplayMemberBinding="{Binding Path=CellPhone, Converter={StaticResource phoneConverter}}" />
-                    <GridViewColumn Header="Email Address"
-                                    DisplayMemberBinding="{Binding PrimaryEmail}" />
+                    <GridViewColumn Header="姓名"
+                                    DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="年龄"
+                                    DisplayMemberBinding="{Binding Age}" />
+                    <GridViewColumn Header="班级"
+                                    DisplayMemberBinding="{Binding Grade}" />
+                    <GridViewColumn Header="学号"
+                                    DisplayMemberBinding="{Binding StudentId}" />
+                    <GridViewColumn Header="手机号"
+                                    DisplayMemberBinding="{Binding CellPhone}" />
                 </GridView>
             </ListView.View>
         </ListView>
