@@ -93,4 +93,22 @@
         <Setter Property="TextBlock.FontWeight"
                 Value="Bold" />
     </Style>
+    <Style x:Key="nameLabel">
+        <Setter Property="TextBlock.Foreground"
+                Value="Black" />
+        <Setter Property="TextBlock.FontSize"
+                Value="18" />
+        <Setter Property="TextBlock.FontWeight"
+                Value="Bold" />
+    </Style>
+    <Style x:Key="tile"
+           TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="Green"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
 </ResourceDictionary>

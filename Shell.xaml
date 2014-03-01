@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:uc="clr-namespace:ContactManager.UserControls"
         Title="Contact Manager"
-        Height="600"
-        Width="800">
+        Height="768"
+        Width="1024" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize">
     <DockPanel>
 
         <uc:SearchBar DockPanel.Dock="Top" />
